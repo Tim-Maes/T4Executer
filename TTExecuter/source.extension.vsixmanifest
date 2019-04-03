@@ -3,7 +3,12 @@
     <Metadata>
         <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.0" Language="en-US" Publisher="Tim Maes" />
         <DisplayName>TTExecuter</DisplayName>
-        <Description xml:space="preserve">Tranform T4 Templates on solution build</Description>
+        <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
+        <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
+        <License>LICENSE.txt</License>
+        <Icon>tticon.png</Icon>
+        <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
+        <Preview>true</Preview>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 16.0)" />
