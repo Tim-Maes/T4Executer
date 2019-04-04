@@ -67,7 +67,7 @@
         <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Enable/Disable TTExecuter</ButtonText>
+          <ButtonText>Enable/Disable</ButtonText>
         </Strings>
       </Button>
     </Buttons>

@@ -62,6 +62,7 @@ namespace TTExecuter
         {
             var projects = _dte.GetProjectsWithinBuildScope(vsBuildScope.vsBuildScopeSolution);
             var projectItems = GetT4ProjectItems(projects);
+
             foreach (var item in projectItems)
             {
                 ExecuteTemplate(item);
