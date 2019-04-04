@@ -14,7 +14,7 @@ using Task = System.Threading.Tasks.Task;
 namespace TTExecuter
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
+    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] 
     [Guid(TTExecuterPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -22,18 +22,10 @@ namespace TTExecuter
     [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionExists_string, PackageAutoLoadFlags.BackgroundLoad)]
     public sealed class TTExecuterPackage : AsyncPackage
     {
-        /// <summary>
-        /// TTExecuterPackage GUID string.
-        /// </summary>
         public const string PackageGuidString = "358d8597-b05d-4c5c-9078-5805b3bb7731";
         private DTE _dte;
         private BuildEvents _buildEvents;
-
-
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TTExecuterPackage"/> class.
-        /// </summary>
+       
         public TTExecuterPackage()
         {
             // Inside this method you can place any initialization code that does not require
@@ -42,15 +34,6 @@ namespace TTExecuter
             // initialization is the Initialize method.
         }
 
-        #region Package Members
-
-        /// <summary>
-        /// Initialization of the package; this method is called right after the package is sited, so this is the place
-        /// where you can put all the initialization code that rely on services provided by VisualStudio.
-        /// </summary>
-        /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
-        /// <param name="progress">A provider for progress updates.</param>
-        /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
@@ -140,7 +123,6 @@ namespace TTExecuter
                         yield return subItem;
                 }
             }
-            #endregion
         }
     }
 }

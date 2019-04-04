@@ -7,6 +7,7 @@
         <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>tticon.png</Icon>
+        <PreviewImage>tticon.png</PreviewImage>
         <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
         <Preview>true</Preview>
     </Metadata>
