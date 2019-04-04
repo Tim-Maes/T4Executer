@@ -6,13 +6,14 @@
     <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
     <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
     <License>LICENSE.txt</License>
-    <ReleaseNotes>1.0 Transform all T4 Templates on solution build/rebuild. </ReleaseNotes>
+    <ReleaseNotes>1.0 Transform all T4 Templates on solution build/rebuild.</ReleaseNotes>
     <Icon>tticon.png</Icon>
     <PreviewImage>tticon.png</PreviewImage>
     <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0, 17.0)" />
     <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0, 17.0)" />
   </Installation>
   <Dependencies>

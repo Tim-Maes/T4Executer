@@ -60,7 +60,7 @@ namespace TTExecuter
 
         private void ExecuteTemplates(vsBuildScope scope)
         {
-            var projects = _dte.GetProjectsWithinBuildScope(vsBuildScope.vsBuildScopeSolution);
+            var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             var projectItems = GetT4ProjectItems(projects);
 
             foreach (var item in projectItems)

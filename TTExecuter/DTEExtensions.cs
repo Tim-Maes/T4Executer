@@ -9,7 +9,7 @@ namespace TTExecuter
 {
     public static class DTEExtensions
     {
-        public static IEnumerable<Project> GetProjectsWithinBuildScope(this DTE dte, vsBuildScope scope)
+        public static IEnumerable<Project> GetProjectsInBuildScope(this DTE dte, vsBuildScope scope)
         {
             IEnumerable<Project> projects = null;
 
