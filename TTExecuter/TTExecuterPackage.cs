@@ -14,7 +14,7 @@ using Task = System.Threading.Tasks.Task;
 namespace TTExecuter
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] 
+    [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
     [Guid(TTExecuterPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
@@ -25,7 +25,7 @@ namespace TTExecuter
         public const string PackageGuidString = "358d8597-b05d-4c5c-9078-5805b3bb7731";
         private DTE _dte;
         private BuildEvents _buildEvents;
-       
+
         public TTExecuterPackage()
         {
             // Inside this method you can place any initialization code that does not require
@@ -44,6 +44,7 @@ namespace TTExecuter
                 return;
 
             RegisterEvents();
+            await OpenSettingsCommand.InitializeAsync(this);
         }
 
         private void RegisterEvents()
@@ -71,11 +72,14 @@ namespace TTExecuter
 
         public void ExecuteTemplate(ProjectItem template)
         {
+            var ignoredTemplates = Settings.Default.IgnoreList;
+
             ThreadHelper.ThrowIfNotOnUIThread();
             var templateVsProjectItem = template.Object as VSProjectItem;
+
             if (templateVsProjectItem != null)
             {
-                templateVsProjectItem.RunCustomTool();
+                if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name)) templateVsProjectItem.RunCustomTool();
             }
             else
             {

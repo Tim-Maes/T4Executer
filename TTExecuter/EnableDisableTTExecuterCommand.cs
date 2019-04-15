@@ -21,7 +21,7 @@ namespace TTExecuter
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
             var menuItem = new MenuCommand(this.Execute, menuCommandID);
-            menuItem.Checked = General.Default.EnableTTExecuter;
+            menuItem.Checked = Settings.Default.EnableTTExecuter;
             commandService.AddCommand(menuItem);
         }
 
@@ -41,10 +41,10 @@ namespace TTExecuter
 
         private void Execute(object sender, EventArgs e)
         {
-            General.Default.EnableTTExecuter = !General.Default.EnableTTExecuter;
-            General.Default.Save();
+            Settings.Default.EnableTTExecuter = !Settings.Default.EnableTTExecuter;
+            Settings.Default.Save();
             var command = sender as MenuCommand;
-            command.Checked = General.Default.EnableTTExecuter;
+            command.Checked = Settings.Default.EnableTTExecuter;
         }
     }
 }

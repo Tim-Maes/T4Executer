@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="TTExecuter.TTExecuterSettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TTExecuter"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <StackPanel Orientation="Horizontal" Loaded="StackPanel_Loaded">
+            <StackPanel Orientation="Vertical">
+                <Label Margin="10" Content="Select templates to ignore"></Label>
+                <ListBox SelectionMode="Multiple" Width="200" Height="380" Margin="10" Name="templatesListBox"></ListBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical"></StackPanel>
+            <Button Content="Ignore selected" Height="40" Width="158" Margin="0,211,0,209" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
