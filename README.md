@@ -2,7 +2,7 @@
 
 Transform T4 Templates when building your solution. 
 
-# Usage
+## Usage
 
 Just install the extension, it's enabled to run execute templates by default on build time.
 
