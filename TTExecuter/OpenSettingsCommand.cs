@@ -2,10 +2,8 @@
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
-using System.Text.RegularExpressions;
 using VSLangProj;
 using Task = System.Threading.Tasks.Task;
 
@@ -31,6 +29,8 @@ namespace TTExecuter
         /// </summary>
         private readonly AsyncPackage package;
 
+        private readonly ProjectItemManager _manager;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OpenSettingsCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -41,7 +41,7 @@ namespace TTExecuter
         {
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
-
+            _manager = new ProjectItemManager();
             var menuCommandID = new CommandID(CommandSet, CommandId);
             var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
@@ -81,40 +81,6 @@ namespace TTExecuter
             Instance = new OpenSettingsCommand(package, commandService);
         }
 
-        public IEnumerable<ProjectItem> GetT4ProjectItems(IEnumerable<Project> projects)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var regex = new Regex(@"\.[Tt][Tt]$");
-            foreach (var project in projects)
-            {
-                foreach (var item in FindProjectItems(regex, project.ProjectItems))
-                {
-                    yield return item;
-                }
-            }
-        }
-
-        IEnumerable<ProjectItem> FindProjectItems(Regex regex, ProjectItems projectItems)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            foreach (ProjectItem projectItem in projectItems)
-            {
-                if (regex.IsMatch(projectItem.Name ?? ""))
-                    yield return projectItem;
-
-                if (projectItem.ProjectItems != null)
-                {
-                    foreach (var subItem in FindProjectItems(regex, projectItem.ProjectItems))
-                        yield return subItem;
-                }
-                if (projectItem.SubProject != null)
-                {
-                    foreach (var subItem in FindProjectItems(regex, projectItem.SubProject.ProjectItems))
-                        yield return subItem;
-                }
-            }
-        }
-
         string GetTemplateName(ProjectItem item)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
@@ -134,7 +100,7 @@ namespace TTExecuter
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
             var projects = dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
-            var projectItems = GetT4ProjectItems(projects);
+            var projectItems = _manager.GetT4ProjectItems(projects);
 
             var templates = projectItems.Select(x => { ThreadHelper.ThrowIfNotOnUIThread(); return x.Name; }).ToArray();
 

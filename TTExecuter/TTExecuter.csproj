@@ -57,6 +57,7 @@
     <Compile Include="DTEExtensions.cs" />
     <Compile Include="EnableDisableTTExecuterCommand.cs" />
     <Compile Include="General.cs" />
+    <Compile Include="ProjectItemManager.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="OpenSettingsCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,12 +3,9 @@ using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using System.Threading;
-using VSLangProj;
 using Task = System.Threading.Tasks.Task;
 
 namespace TTExecuter
@@ -25,9 +22,11 @@ namespace TTExecuter
         public const string PackageGuidString = "358d8597-b05d-4c5c-9078-5805b3bb7731";
         private DTE _dte;
         private BuildEvents _buildEvents;
+        private readonly ProjectItemManager _manager;
 
         public TTExecuterPackage()
         {
+            _manager = new ProjectItemManager();
             // Inside this method you can place any initialization code that does not require
             // any Visual Studio service because at this point the package object is created but
             // not sited yet inside Visual Studio environment. The place to do all the other
@@ -62,71 +61,11 @@ namespace TTExecuter
         private void ExecuteTemplates(vsBuildScope scope)
         {
             var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
-            var projectItems = GetT4ProjectItems(projects);
+            var projectItems = _manager.GetT4ProjectItems(projects);
 
             foreach (var item in projectItems)
             {
-                ExecuteTemplate(item);
-            }
-        }
-
-        public void ExecuteTemplate(ProjectItem template)
-        {
-            var ignoredTemplates = Settings.Default.IgnoreList;
-
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var templateVsProjectItem = template.Object as VSProjectItem;
-
-            if (templateVsProjectItem != null)
-            {
-                if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name)) templateVsProjectItem.RunCustomTool();
-            }
-            else
-            {
-                if (!template.IsOpen)
-                {
-                    var window = template.Open();
-                    template.Save();
-                    window.Close();
-                }
-                else
-                {
-                    template.Save();
-                }
-            }
-        }
-
-        public IEnumerable<ProjectItem> GetT4ProjectItems(IEnumerable<Project> projects)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var regex = new Regex(@"\.[Tt][Tt]$");
-            foreach (var project in projects)
-            {
-                foreach (var item in FindProjectItems(regex, project.ProjectItems))
-                {
-                    yield return item;
-                }
-            }
-        }
-
-        IEnumerable<ProjectItem> FindProjectItems(Regex regex, ProjectItems projectItems)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            foreach (ProjectItem projectItem in projectItems)
-            {
-                if (regex.IsMatch(projectItem.Name ?? ""))
-                    yield return projectItem;
-
-                if (projectItem.ProjectItems != null)
-                {
-                    foreach (var subItem in FindProjectItems(regex, projectItem.ProjectItems))
-                        yield return subItem;
-                }
-                if (projectItem.SubProject != null)
-                {
-                    foreach (var subItem in FindProjectItems(regex, projectItem.SubProject.ProjectItems))
-                        yield return subItem;
-                }
+                _manager.ExecuteTemplate(item);
             }
         }
     }
