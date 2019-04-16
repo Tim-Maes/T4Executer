@@ -43,6 +43,7 @@ namespace TTExecuter
                 return;
 
             RegisterEvents();
+            await EnableDisableTTExecuterCommand.InitializeAsync(this);
             await OpenSettingsCommand.InitializeAsync(this);
         }
 
@@ -55,7 +56,10 @@ namespace TTExecuter
 
         private void OnBuildBegin(vsBuildScope scope, vsBuildAction action)
         {
-            ExecuteTemplates(scope);
+            if (Settings.Default.EnableTTExecuter)
+            {
+                ExecuteTemplates(scope);
+            }
         }
 
         private void ExecuteTemplates(vsBuildScope scope)
