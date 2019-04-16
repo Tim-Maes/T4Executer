@@ -5,9 +5,6 @@ using Task = System.Threading.Tasks.Task;
 
 namespace TTExecuter
 {
-    /// <summary>
-    /// Command handler
-    /// </summary>
     internal sealed class EnableDisableTTExecuterCommand
     {
         public const int CommandId = 0x0100;

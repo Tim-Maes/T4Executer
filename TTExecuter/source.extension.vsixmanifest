@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-  <Metadata>
-    <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.3" Language="en-US" Publisher="Tim Maes" />
-    <DisplayName>TTExecuter</DisplayName>
-    <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
-    <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
-    <License>LICENSE.txt</License>
-    <ReleaseNotes>1.0 Transform all T4 Templates on solution build/rebuild.</ReleaseNotes>
-    <Icon>tticon.png</Icon>
-    <PreviewImage>tticon.png</PreviewImage>
-    <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
-  </Metadata>
-  <Installation>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />
-    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0, 17.0)" />
-    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0, 17.0)" />
-  </Installation>
-  <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-  </Dependencies>
-  <Prerequisites>
-    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
-  </Prerequisites>
-  <Assets>
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-  </Assets>
+    <Metadata>
+        <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.4" Language="en-US" Publisher="Tim Maes" />
+        <DisplayName>TTExecuter</DisplayName>
+        <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
+        <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
+        <License>LICENSE.txt</License>
+        <ReleaseNotes>1.4 Fix when enable did not work</ReleaseNotes>
+        <Icon>tticon.png</Icon>
+        <PreviewImage>tticon.png</PreviewImage>
+        <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[15.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0, 17.0)" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
 </PackageManifest>
