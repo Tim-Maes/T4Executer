@@ -17,8 +17,15 @@ namespace TTExecuter
 
             if (templateVsProjectItem != null)
             {
-                if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name))
+                if (ignoredTemplates != null && ignoredTemplates.Count > 0)
+                {
+                    if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name))
+                        templateVsProjectItem.RunCustomTool();
+                }
+                else
+                {
                     templateVsProjectItem.RunCustomTool();
+                }
             }
             else
             {

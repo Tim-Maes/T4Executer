@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.5" Language="en-US" Publisher="Tim Maes" />
+        <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.7" Language="en-US" Publisher="Tim Maes" />
         <DisplayName>TTExecuter</DisplayName>
         <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
         <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
         <License>LICENSE.txt</License>
-        <ReleaseNotes>1.5 Improved settings window + code improvements</ReleaseNotes>
+        <ReleaseNotes>1.6 Not enabled by default</ReleaseNotes>
         <Icon>tticon.png</Icon>
         <PreviewImage>tticon.png</PreviewImage>
         <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
