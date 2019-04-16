@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="EnableTTExecuter" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="IgnoreList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
