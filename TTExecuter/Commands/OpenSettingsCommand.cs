@@ -66,7 +66,8 @@ namespace TTExecuter
 
             var window = new System.Windows.Window();
             window.Content = new TTExecuterSettingsControl(templates);
-            window.Width = 400;
+            window.Width = 240;
+            window.Height = 430;
             window.Show();
         }
     }

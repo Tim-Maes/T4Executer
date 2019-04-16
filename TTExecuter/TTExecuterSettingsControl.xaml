@@ -5,15 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TTExecuter"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="400">
+             d:DesignHeight="400" d:DesignWidth="220">
     <Grid>
         <StackPanel Orientation="Horizontal" Loaded="StackPanel_Loaded">
             <StackPanel Orientation="Vertical">
-                <Label Margin="10" Content="Select templates to ignore"></Label>
-                <ListBox SelectionMode="Multiple" Width="200" Height="380" Margin="10" Name="templatesListBox"></ListBox>
+                <Label Margin="10" Content="Select T4 templates to ignore on build"></Label>
+                <ListBox SelectionMode="Multiple" Width="200" Height="300" Margin="10" Name="templatesListBox"></ListBox>
+                <Button Content="Ignore selected" Height="20" Width="158" Click="Button_Click"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical"></StackPanel>
-            <Button Content="Ignore selected" Height="40" Width="158" Margin="0,211,0,209" Click="Button_Click"/>
+            <StackPanel Orientation="Vertical">
+            </StackPanel>
+            
         </StackPanel>
     </Grid>
 </UserControl>

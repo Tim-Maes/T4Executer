@@ -8,6 +8,41 @@ namespace TTExecuter
 {
     public class ProjectItemManager
     {
+        public void ExecuteTemplate(ProjectItem template)
+        {
+            var ignoredTemplates = Settings.Default.IgnoreList;
+
+            ThreadHelper.ThrowIfNotOnUIThread();
+            var templateVsProjectItem = template.Object as VSProjectItem;
+
+            if (templateVsProjectItem != null)
+            {
+                if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name))
+                    templateVsProjectItem.RunCustomTool();
+            }
+            else
+            {
+                if (!template.IsOpen)
+                {
+                    var window = template.Open();
+                    template.Save();
+                    window.Close();
+                }
+                else
+                {
+                    template.Save();
+                }
+            }
+        }
+
+        public void ExecuteTemplates(IEnumerable<ProjectItem> projectItems, vsBuildScope scope)
+        {
+            foreach (var item in projectItems)
+            {
+                ExecuteTemplate(item);
+            }
+        }
+
         public IEnumerable<ProjectItem> GetT4ProjectItems(IEnumerable<Project> projects)
         {
             ThreadHelper.ThrowIfNotOnUIThread();
@@ -38,32 +73,6 @@ namespace TTExecuter
                 {
                     foreach (var subItem in FindProjectItems(regex, projectItem.SubProject.ProjectItems))
                         yield return subItem;
-                }
-            }
-        }
-
-        public void ExecuteTemplate(ProjectItem template)
-        {
-            var ignoredTemplates = Settings.Default.IgnoreList;
-
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var templateVsProjectItem = template.Object as VSProjectItem;
-
-            if (templateVsProjectItem != null)
-            {
-                if (!ignoredTemplates.Contains(templateVsProjectItem.ProjectItem.Name)) templateVsProjectItem.RunCustomTool();
-            }
-            else
-            {
-                if (!template.IsOpen)
-                {
-                    var window = template.Open();
-                    template.Save();
-                    window.Close();
-                }
-                else
-                {
-                    template.Save();
                 }
             }
         }

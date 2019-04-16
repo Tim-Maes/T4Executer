@@ -52,20 +52,12 @@ namespace TTExecuter
 
         private void OnBuildBegin(vsBuildScope scope, vsBuildAction action)
         {
-            if (Settings.Default.EnableTTExecuter)
-            {
-                ExecuteTemplates(scope);
-            }
-        }
-
-        private void ExecuteTemplates(vsBuildScope scope)
-        {
             var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             var projectItems = _manager.GetT4ProjectItems(projects);
 
-            foreach (var item in projectItems)
+            if (Settings.Default.EnableTTExecuter)
             {
-                _manager.ExecuteTemplate(item);
+                _manager.ExecuteTemplates(projectItems, scope);
             }
         }
     }
