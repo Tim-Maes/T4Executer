@@ -42,11 +42,12 @@ namespace TTExecuter
             }
         }
 
-        public void ExecuteTemplates(IEnumerable<ProjectItem> projectItems, vsBuildScope scope)
+        public void ExecuteTemplates(IEnumerable<ProjectItem> projectItems)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             foreach (var item in projectItems)
             {
-                ExecuteTemplate(item);
+                if (item.Object != null) ExecuteTemplate(item);
             }
         }
 
@@ -54,6 +55,7 @@ namespace TTExecuter
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var regex = new Regex(@"\.[Tt][Tt]$");
+
             foreach (var project in projects)
             {
                 foreach (var item in FindProjectItems(regex, project.ProjectItems))

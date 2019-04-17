@@ -57,7 +57,7 @@ namespace TTExecuter
 
             if (Settings.Default.EnableTTExecuter)
             {
-                _manager.ExecuteTemplates(projectItems, scope);
+                _manager.ExecuteTemplates(projectItems);
             }
         }
     }
