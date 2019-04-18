@@ -3,9 +3,11 @@ using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
+using TTExecuter.Commands;
 using Task = System.Threading.Tasks.Task;
 
 namespace TTExecuter
@@ -41,6 +43,7 @@ namespace TTExecuter
             RegisterEvents();
             await EnableDisableTTExecuterCommand.InitializeAsync(this);
             await OpenSettingsCommand.InitializeAsync(this);
+            await ExcecuteAfterBuildCommand.InitializeAsync(this);
         }
 
         private void RegisterEvents()
@@ -48,14 +51,30 @@ namespace TTExecuter
             ThreadHelper.ThrowIfNotOnUIThread();
             _buildEvents = _dte.Events.BuildEvents;
             _buildEvents.OnBuildBegin += OnBuildBegin;
+            _buildEvents.OnBuildDone += OnBuildDone;
+        }
+
+        private IEnumerable<ProjectItem> GetProjectItems()
+        {
+            var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
+            return _manager.GetT4ProjectItems(projects);
         }
 
         private void OnBuildBegin(vsBuildScope scope, vsBuildAction action)
         {
-            var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
-            var projectItems = _manager.GetT4ProjectItems(projects);
+            IEnumerable<ProjectItem> projectItems = GetProjectItems();
 
-            if (Settings.Default.EnableTTExecuter)
+            if (Settings.Default.EnableTTExecuter && !Settings.Default.ExecuteAfterBuild)
+            {
+                _manager.ExecuteTemplates(projectItems);
+            }
+        }
+
+        private void OnBuildDone(vsBuildScope scope, vsBuildAction action)
+        {
+            IEnumerable<ProjectItem> projectItems = GetProjectItems();
+
+            if (Settings.Default.EnableTTExecuter && Settings.Default.ExecuteAfterBuild)
             {
                 _manager.ExecuteTemplates(projectItems);
             }

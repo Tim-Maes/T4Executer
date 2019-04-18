@@ -23,6 +23,9 @@
       <Group guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidTTExecuterPackageCmdSet" id="TopLevelMenu" />
       </Group>
+      <Group guid="guidTTExecuterPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidTTExecuterPackageCmdSet" id="TopLevelMenu" />
+      </Group>
     </Groups>
 
     <Buttons>
@@ -40,11 +43,19 @@
           <ButtonText>Ignore Templates</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidTTExecuterPackageCmdSet2" id="cmdidExcecuteAfterBuildCommand" priority="0x0100" type="Button">
+        <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages2" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Run After Build</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <Bitmaps>
       <Bitmap guid="guidImages" href="Resources\EnableDisableTTExecuterCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages1" href="Resources\OpenSettingsCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages2" href="Commands\Resources\ExcecuteAfterBuildCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
@@ -72,6 +83,20 @@
     </GuidSymbol>
   
     <GuidSymbol value="{2d74502b-7df5-4fa6-8df6-32e16aa21c6c}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{9b56b87f-bdb0-41c1-a496-0b1a72e5b9d3}" name="guidTTExecuterPackageCmdSet2">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidExcecuteAfterBuildCommand" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{4b9ada3b-d7e9-45a6-89b4-c27a02870866}" name="guidImages2">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

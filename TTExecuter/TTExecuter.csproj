@@ -54,6 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\ExcecuteAfterBuildCommand.cs" />
     <Compile Include="Extensions\DTEExtensions.cs" />
     <Compile Include="Commands\EnableDisableTTExecuterCommand.cs" />
     <Compile Include="ProjectItemManager.cs" />
@@ -91,6 +92,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Commands\Resources\ExcecuteAfterBuildCommand.png" />
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>

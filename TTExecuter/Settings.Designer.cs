@@ -45,5 +45,17 @@ namespace TTExecuter {
                 this["IgnoreList"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ExecuteAfterBuild {
+            get {
+                return ((bool)(this["ExecuteAfterBuild"]));
+            }
+            set {
+                this["ExecuteAfterBuild"] = value;
+            }
+        }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using EnvDTE;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TTExecuter
 {
@@ -11,6 +8,7 @@ namespace TTExecuter
     {
         public static IEnumerable<Project> GetProjectsInBuildScope(this DTE dte, vsBuildScope scope)
         {
+            Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
             IEnumerable<Project> projects = null;
 
             switch (scope)
