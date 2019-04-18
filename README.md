@@ -4,10 +4,9 @@ Transform T4 Templates when building your solution.
 
 ## Usage
 
-Just install the extension.
+Just install the extension. You can download it at [the marketplace](https://marketplace.visualstudio.com/items?itemName=TimMaes.ttexecuter) or just install it in Visual Studio.
 
 ## Configuration
-
 
 Enable or disable TTExecuter via `Extensions - TTExecuter - Enable/Disable`.
 
