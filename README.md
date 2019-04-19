@@ -4,7 +4,7 @@ Transform T4 Templates when building your solution.
 
 ## Usage
 
-Just install the extension. You can download it at [the marketplace](https://marketplace.visualstudio.com/items?itemName=TimMaes.ttexecuter) or just install it in Visual Studio.
+Just install the extension. You can download it at [the marketplace](https://marketplace.visualstudio.com/items?itemName=TimMaes.ttexecuter) or install it in Visual Studio.
 
 ## Configuration
 
