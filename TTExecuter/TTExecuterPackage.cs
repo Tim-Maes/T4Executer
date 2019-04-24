@@ -1,4 +1,5 @@
 ﻿using EnvDTE;
+using Microsoft;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
@@ -37,6 +38,9 @@ namespace TTExecuter
             base.Initialize();
 
             _dte = await GetServiceAsync(typeof(SDTE)) as DTE;
+
+            Assumes.Present(_dte);
+
             if (_dte == null)
                 return;
 
