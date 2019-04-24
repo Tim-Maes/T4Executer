@@ -60,12 +60,15 @@ namespace TTExecuter
 
         private IEnumerable<ProjectItem> GetProjectItems()
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             return _manager.GetT4ProjectItems(projects);
         }
 
         private void OnBuildBegin(vsBuildScope scope, vsBuildAction action)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
             IEnumerable<ProjectItem> projectItems = GetProjectItems();
 
             if (Settings.Default.EnableTTExecuter && !Settings.Default.ExecuteAfterBuild)
@@ -76,6 +79,8 @@ namespace TTExecuter
 
         private void OnBuildDone(vsBuildScope scope, vsBuildAction action)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
+
             IEnumerable<ProjectItem> projectItems = GetProjectItems();
 
             if (Settings.Default.EnableTTExecuter && Settings.Default.ExecuteAfterBuild)
