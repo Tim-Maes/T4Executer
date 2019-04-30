@@ -2,9 +2,9 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="1.9" Language="en-US" Publisher="Tim Maes" />
-        <DisplayName>TTExecuter</DisplayName>
+        <DisplayName>T4Executer</DisplayName>
         <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
-        <MoreInfo>http://www.github.com/Epsilekt/TTExecuter</MoreInfo>
+        <MoreInfo>http://www.github.com/Epsilekt/T4Executer</MoreInfo>
         <License>LICENSE.txt</License>
         <ReleaseNotes>1.9 Add option to execute after build</ReleaseNotes>
         <Icon>tticon.png</Icon>

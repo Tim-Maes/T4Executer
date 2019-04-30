@@ -9,7 +9,7 @@ namespace TTExecuter
     /// </summary>
     public partial class TTExecuterSettingsControl : UserControl
     {
-        string[] _templates;
+        readonly string[] _templates;
 
         public TTExecuterSettingsControl(string[] templates)
         {
