@@ -42,12 +42,37 @@ namespace TTExecuter
             }
         }
 
-        public void ExecuteTemplates(IEnumerable<ProjectItem> projectItems)
+        public void ExecuteTemplatesBeforeBuild(IEnumerable<ProjectItem> projectItems)
         {
+            var beforeBuildList = Settings.Default.BeforeBuildList;
+            if (Settings.Default.RunAll)
+            {
+                foreach (var item in projectItems)
+                {
+                        if (item.Object != null) ExecuteTemplate(item);
+                }
+            }
             ThreadHelper.ThrowIfNotOnUIThread();
             foreach (var item in projectItems)
             {
-                if (item.Object != null) ExecuteTemplate(item);
+                if (item.Object != null)
+                {
+                    if (beforeBuildList.Contains(item.Name)) ExecuteTemplate(item);
+                }
+            }
+        }
+
+        public void ExecuteTemplatesAfterBuild(IEnumerable<ProjectItem> projectItems)
+        {
+            var afterBuildList = Settings.Default.AfterBuildList;
+
+            ThreadHelper.ThrowIfNotOnUIThread();
+            foreach (var item in projectItems)
+            {
+                if (item.Object != null)
+                {
+                    if (afterBuildList.Contains(item.Name)) ExecuteTemplate(item);
+                }
             }
         }
 

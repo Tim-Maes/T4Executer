@@ -25,7 +25,7 @@ namespace TTExecuter {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableTTExecuter {
             get {
                 return ((bool)(this["EnableTTExecuter"]));
@@ -48,13 +48,35 @@ namespace TTExecuter {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ExecuteAfterBuild {
+        public global::System.Collections.Specialized.StringCollection AfterBuildList {
             get {
-                return ((bool)(this["ExecuteAfterBuild"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["AfterBuildList"]));
             }
             set {
-                this["ExecuteAfterBuild"] = value;
+                this["AfterBuildList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection BeforeBuildList {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["BeforeBuildList"]));
+            }
+            set {
+                this["BeforeBuildList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool RunAll {
+            get {
+                return ((bool)(this["RunAll"]));
+            }
+            set {
+                this["RunAll"] = value;
             }
         }
     }

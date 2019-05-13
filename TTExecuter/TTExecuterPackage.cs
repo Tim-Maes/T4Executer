@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
-using TTExecuter.Commands;
 using Task = System.Threading.Tasks.Task;
 
 namespace TTExecuter
@@ -47,7 +46,6 @@ namespace TTExecuter
             RegisterEvents();
             await EnableDisableTTExecuterCommand.InitializeAsync(this);
             await OpenSettingsCommand.InitializeAsync(this);
-            await ExcecuteAfterBuildCommand.InitializeAsync(this);
         }
 
         private void RegisterEvents()
@@ -71,9 +69,9 @@ namespace TTExecuter
 
             IEnumerable<ProjectItem> projectItems = GetProjectItems();
 
-            if (Settings.Default.EnableTTExecuter && !Settings.Default.ExecuteAfterBuild)
+            if (Settings.Default.EnableTTExecuter)
             {
-                _manager.ExecuteTemplates(projectItems);
+                _manager.ExecuteTemplatesBeforeBuild(projectItems);
             }
         }
 
@@ -83,9 +81,9 @@ namespace TTExecuter
 
             IEnumerable<ProjectItem> projectItems = GetProjectItems();
 
-            if (Settings.Default.EnableTTExecuter && Settings.Default.ExecuteAfterBuild)
+            if (Settings.Default.EnableTTExecuter)
             {
-                _manager.ExecuteTemplates(projectItems);
+                _manager.ExecuteTemplatesAfterBuild(projectItems);
             }
         }
     }

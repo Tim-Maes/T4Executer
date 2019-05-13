@@ -40,14 +40,7 @@
         <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
-          <ButtonText>Ignore Templates</ButtonText>
-        </Strings>
-      </Button>
-      <Button guid="guidTTExecuterPackageCmdSet2" id="cmdidExcecuteAfterBuildCommand" priority="0x0100" type="Button">
-        <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages2" id="bmpPic1" />
-        <Strings>
-          <ButtonText>Run After Build</ButtonText>
+          <ButtonText>Configure</ButtonText>
         </Strings>
       </Button>
     </Buttons>

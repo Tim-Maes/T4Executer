@@ -15,17 +15,17 @@
     <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-		<Title>T4Executer</Title>
-		<Description>Execute T4 Templates on/after build</Description>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Company>Epsicode</Company>
-		<Version>1.9</Version>
-		<Authors>Epsilekt</Authors>
-		<PackageProjectUrl>https://github.com/Epsilekt/T4Executer</PackageProjectUrl>
-		<License>MIT</License>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/Epsilekt/T4Executer</RepositoryUrl>
-	</PropertyGroup>
+    <Title>T4Executer</Title>
+    <Description>Execute T4 Templates on/after build</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>Epsicode</Company>
+    <Version>1.9</Version>
+    <Authors>Epsilekt</Authors>
+    <PackageProjectUrl>https://github.com/Epsilekt/T4Executer</PackageProjectUrl>
+    <License>MIT</License>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Epsilekt/T4Executer</RepositoryUrl>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -66,7 +66,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\ExcecuteAfterBuildCommand.cs" />
     <Compile Include="Extensions\DTEExtensions.cs" />
     <Compile Include="Commands\EnableDisableTTExecuterCommand.cs" />
     <Compile Include="ProjectItemManager.cs" />
@@ -105,6 +104,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Commands\Resources\ExcecuteAfterBuildCommand.png" />
+    <Content Include="gM1fSkX6.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
