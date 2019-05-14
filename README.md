@@ -1,5 +1,6 @@
 # T4Executer
 
+Fully configurable extension for Visual Studio 2017 & 2019
 Transform T4 Templates when building your solution. 
 
 ## Usage
@@ -8,9 +9,9 @@ Just install the extension. You can download it at [the marketplace](https://mar
 
 ## Configuration
 
-Enable or disable T4Executer via `Extensions - T4Executer - Enable/Disable`.
+Enable or disable T4Executer via `Extensions - T4Executer - Enable/Disable`, it's enabled by default.
+T4Executer will run all your templates when building your solution.
 
-Check to execute templates after build via `Extensions > T4Executer > Run after build`.
+You can set which T4 Templates to execute before build, after build or which Templates to ignore completely on build time via `Extensions - T4Executer - Configure`.
 
-You can select which templates not to run in `Extensions > T4Executer > Ignore Templates`. Note that they will still be run on `Build > Transform All T4 Templates`.
-
+![Control](https://i.ibb.co/X45VjTz/T4Meu.png)
