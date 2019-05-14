@@ -14,4 +14,4 @@ T4Executer will run all your templates when building your solution.
 
 You can set which T4 Templates to execute before build, after build or which Templates to ignore completely on build time via `Extensions - T4Executer - Configure`.
 
-![Control](https://i.ibb.co/X45VjTz/T4Meu.png)
+![Control](https://i.ibb.co/PgW3zcK/Example-Menu.png)
