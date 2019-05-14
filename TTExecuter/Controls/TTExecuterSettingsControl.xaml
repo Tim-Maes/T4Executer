@@ -5,22 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TTExecuter"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="680">
+             d:DesignHeight="400" d:DesignWidth="580">
     <Grid>
         <StackPanel Orientation="Horizontal" Loaded="StackPanel_Loaded">
             <StackPanel Orientation="Vertical">
                 <Label 
-                    Margin="10 5" 
+                    Margin="5" 
                     Content="All T4 items in solution">
                 </Label>
                 <ListBox 
                     SelectionMode="Multiple" 
-                    Width="200" Height="250" 
-                    Margin="5 10" 
+                    Width="150" Height="250" 
+                    Margin="5" 
                     Name="templatesListBox"></ListBox>
                 <StackPanel>
                     <Button Name="IgnoreButton"
-                        Margin="10" 
+                        Margin="5" 
                         Content="Do not execute" 
                         Height="20" Width="120" 
                         Click="IgnoreButton_Click"/>
@@ -42,23 +42,21 @@
             <StackPanel 
                 Orientation="Vertical">
                 <Label 
-                    Margin="10 5" 
+                    Margin="5" 
                     Content="Will be run before build">
                 </Label>
                 <ListBox 
                     SelectionMode="Multiple" 
-                    Width="200" 
-                    Height="140" Margin="5 10" 
+                    Width="150" 
+                    Height="140" Margin="5" 
                     Name="BeforeBuildListbox">
                 </ListBox>
                 <Label 
-                    Margin="10 5" 
                     Content="Will not be run">
                 </Label>
                 <ListBox 
                     SelectionMode="Multiple" 
-                    Width="200" Height="140" 
-                    Margin="10" 
+                    Width="150" Height="140" 
                     Name="IgnoreListBox">
                 </ListBox>
             </StackPanel>
@@ -70,8 +68,8 @@
                 </Label>
                 <ListBox 
                     SelectionMode="Multiple" 
-                    Width="200" Height="140" 
-                    Margin="5 10" 
+                    Width="150" Height="140" 
+                    Margin="5" 
                     Name="AfterBuildListBox">
                 </ListBox>
                 <StackPanel 
@@ -81,7 +79,6 @@
                             Width="100" 
                             Name="ConfirmButton" 
                             Click="Confirm_Click">
-                        
                     </Button>
                     <Button 
                         Margin="10" 

@@ -32,8 +32,9 @@
       <Button guid="guidTTExecuterPackageCmdSet" id="EnableDisableTTExecuterCommandId" priority="0x0100" type="Button">
         <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
-        <Strings>
-          <ButtonText>Enable/Disable</ButtonText>
+		  <CommandFlag>TextChanges</CommandFlag>
+		  <Strings>
+          <ButtonText>Disable</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidTTExecuterPackageCmdSet1" id="cmdidOpenSettingsCommand" priority="0x0100" type="Button">

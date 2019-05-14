@@ -22,7 +22,7 @@ namespace TTExecuter
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
             _manager = new ProjectItemManager();
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
+            var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
         }
 
@@ -64,10 +64,13 @@ namespace TTExecuter
 
             var templates = projectItems.Select(x => { ThreadHelper.ThrowIfNotOnUIThread(); return x.Name; }).ToArray();
 
-            var window = new System.Windows.Window();
-            window.Content = new TTExecuterSettingsControl(templates);
-            window.Width = 680;
-            window.Height = 450;
+            var window = new System.Windows.Window
+            {
+                Content = new TTExecuterSettingsControl(templates),
+                Width = 580,
+                Height = 400
+            };
+
             window.Show();
         }
     }

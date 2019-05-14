@@ -17,8 +17,9 @@ namespace TTExecuter
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
+            var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
             menuItem.Checked = Settings.Default.EnableTTExecuter;
+            menuItem.BeforeQueryStatus += new EventHandler(OnBeforeQueryStatus);
             commandService.AddCommand(menuItem);
         }
 
@@ -26,6 +27,15 @@ namespace TTExecuter
         {
             get;
             private set;
+        }
+
+        private void OnBeforeQueryStatus(object sender, EventArgs e)
+        {
+            OleMenuCommand enableDisableCommand = sender as OleMenuCommand;
+            if (null != enableDisableCommand)
+            {
+                enableDisableCommand.Text = Settings.Default.EnableTTExecuter ? "Disable" : "Enable";
+            }
         }
 
         public static async Task InitializeAsync(AsyncPackage package)
@@ -40,6 +50,7 @@ namespace TTExecuter
         {
             Settings.Default.EnableTTExecuter = !Settings.Default.EnableTTExecuter;
             Settings.Default.Save();
+
             var command = sender as MenuCommand;
             command.Checked = Settings.Default.EnableTTExecuter;
         }
