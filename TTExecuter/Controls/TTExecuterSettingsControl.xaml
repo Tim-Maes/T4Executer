@@ -5,36 +5,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TTExecuter"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="580">
+             d:DesignHeight="300" d:DesignWidth="520">
     <Grid>
         <StackPanel Orientation="Horizontal" Loaded="StackPanel_Loaded">
             <StackPanel Orientation="Vertical">
                 <Label 
                     Margin="5" 
-                    Content="All T4 items in solution">
+                    Content="T4 Templates">
                 </Label>
                 <ListBox 
                     SelectionMode="Multiple" 
-                    Width="150" Height="250" 
+                    Width="150" Height="160" 
                     Margin="5" 
                     Name="templatesListBox"></ListBox>
                 <StackPanel>
                     <Button Name="IgnoreButton"
                         Margin="5" 
-                        Content="Do not execute" 
-                        Height="20" Width="120" 
+                        Content="Ignore" 
+                        Height="20" Width="80" 
                         Click="IgnoreButton_Click"/>
                     <StackPanel 
                         Orientation="Horizontal">
                         <Button Name="BeforeBuildButton"
                             Margin="5" 
-                            Content="Run before build" 
-                            Height="20" Width="100" 
+                            Content="Before build" 
+                            Height="20" Width="80" 
                             Click="BeforeBuildButton_Click"/>
                         <Button Name="AfterBuildButton"
                             Margin="5" 
-                            Content="Run after build" 
-                            Height="20" Width="100" 
+                            Content="After build" 
+                            Height="20" Width="80" 
                             Click="AfterBuildButton_Click"/>
                     </StackPanel>
                 </StackPanel>
@@ -46,35 +46,34 @@
                     Content="Will be run before build">
                 </Label>
                 <ListBox 
-                    SelectionMode="Multiple" 
+                    IsEnabled="False" 
                     Width="150" 
-                    Height="140" Margin="5" 
+                    Height="100" Margin="5" 
                     Name="BeforeBuildListbox">
                 </ListBox>
                 <Label 
                     Content="Will not be run">
                 </Label>
                 <ListBox 
-                    SelectionMode="Multiple" 
-                    Width="150" Height="140" 
+                    IsEnabled="False" 
+                    Width="150" Height="100" 
                     Name="IgnoreListBox">
                 </ListBox>
             </StackPanel>
             <StackPanel 
                 Orientation="Vertical">
                 <Label 
-                    Margin="10 5" 
-                    Content="Will be run after build">
+                    Margin="5" 
+                    Content="Executed after build">
                 </Label>
                 <ListBox 
-                    SelectionMode="Multiple" 
-                    Width="150" Height="140" 
+                    IsEnabled="False" 
+                    Width="150" Height="100" 
                     Margin="5" 
                     Name="AfterBuildListBox">
                 </ListBox>
-                <StackPanel 
-                    Margin="40 70 50 50">
-                    <Button Margin="10" 
+                <StackPanel Margin="10 40">
+                    <Button Margin="5" 
                             Content="Confirm" 
                             Width="100" 
                             Name="ConfirmButton" 
