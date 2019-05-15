@@ -44,6 +44,7 @@ namespace TTExecuter
 
         public void ExecuteTemplatesBeforeBuild(IEnumerable<ProjectItem> projectItems)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             var beforeBuildList = Settings.Default.BeforeBuildList;
             if (Settings.Default.RunAll)
             {
@@ -60,6 +61,15 @@ namespace TTExecuter
                     if (beforeBuildList.Contains(item.Name)) ExecuteTemplate(item);
                 }
             }
+        }
+
+        public void ExecuteAllTemplates(IEnumerable<ProjectItem> projectItems)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            foreach (var item in projectItems)
+                {
+                    if (item.Object != null) ExecuteTemplate(item);
+                }
         }
 
         public void ExecuteTemplatesAfterBuild(IEnumerable<ProjectItem> projectItems)

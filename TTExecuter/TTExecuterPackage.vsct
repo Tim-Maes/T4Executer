@@ -11,7 +11,7 @@
         <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
           <ButtonText>TestMenu</ButtonText>
-          <CommandName>TTExecuter</CommandName>
+          <CommandName>T4Executer</CommandName>
         </Strings>
       </Menu>
     </Menus>
@@ -25,6 +25,9 @@
       </Group>
       <Group guid="guidTTExecuterPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidTTExecuterPackageCmdSet" id="TopLevelMenu" />
+      </Group>
+      <Group guid="guidTTExecuterPackageCmdSet3" id="SolutionToolbarGroup" priority="0xF000">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_PROJWIN" />
       </Group>
     </Groups>
 
@@ -44,12 +47,20 @@
           <ButtonText>Configure</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidTTExecuterPackageCmdSet3" id="cmdidRunAllTemplatesCommand" priority="0x0100" type="Button">
+        <Parent guid="guidTTExecuterPackageCmdSet3" id="SolutionToolbarGroup" />
+        <Icon guid="guidImages3" id="bmpPic1" />
+        <Strings>
+          <ButtonText>T4</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <Bitmaps>
       <Bitmap guid="guidImages" href="Resources\EnableDisableTTExecuterCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages1" href="Resources\OpenSettingsCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
       <Bitmap guid="guidImages2" href="Commands\Resources\ExcecuteAfterBuildCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages3" href="Commands\Resources\RunAllTemplatesCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
@@ -91,6 +102,20 @@
     </GuidSymbol>
   
     <GuidSymbol value="{4b9ada3b-d7e9-45a6-89b4-c27a02870866}" name="guidImages2">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{03d68cc2-f822-4688-81f5-5e431f51c62d}" name="guidTTExecuterPackageCmdSet3">
+      <IDSymbol value="4128" name="SolutionToolbarGroup" />
+      <IDSymbol value="256" name="cmdidRunAllTemplatesCommand" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{147ed528-5121-4cfa-98e0-8c5fc934b86a}" name="guidImages3">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

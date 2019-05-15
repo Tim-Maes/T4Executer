@@ -1,32 +1,37 @@
-﻿using EnvDTE;
+﻿using System;
+using System.ComponentModel.Design;
+using System.Globalization;
+using System.Threading;
+using System.Threading.Tasks;
+using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using System;
-using System.ComponentModel.Design;
-using System.Linq;
-using VSLangProj;
 using Task = System.Threading.Tasks.Task;
 
-namespace TTExecuter
+namespace TTExecuter.Commands
 {
-    internal sealed class OpenSettingsCommand
+    internal sealed class RunAllTemplatesCommand
     {
         public const int CommandId = 256;
-        public static readonly Guid CommandSet = new Guid("77605b7c-d09f-47b2-928e-552295580232");
-        private readonly AsyncPackage package;
-        private readonly ProjectItemManager _manager;
 
-        private OpenSettingsCommand(AsyncPackage package, OleMenuCommandService commandService)
+        public static readonly Guid CommandSet = new Guid("03d68cc2-f822-4688-81f5-5e431f51c62d");
+
+        private readonly AsyncPackage package;
+
+        private ProjectItemManager _manager;
+
+        private RunAllTemplatesCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
+            _manager = new ProjectItemManager();
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
-            _manager = new ProjectItemManager();
+
             var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
+            var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
         }
 
-        public static OpenSettingsCommand Instance
+        public static RunAllTemplatesCommand Instance
         {
             get;
             private set;
@@ -45,14 +50,7 @@ namespace TTExecuter
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new OpenSettingsCommand(package, commandService);
-        }
-
-        string GetTemplateName(ProjectItem item)
-        {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            var templateVsProjectItem = item.Object as VSProjectItem;
-            return templateVsProjectItem.ProjectItem.Name;
+            Instance = new RunAllTemplatesCommand(package, commandService);
         }
 
         private void Execute(object sender, EventArgs e)
@@ -62,16 +60,7 @@ namespace TTExecuter
             var projects = dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             var projectItems = _manager.GetT4ProjectItems(projects);
 
-            var templates = projectItems.Select(x => { ThreadHelper.ThrowIfNotOnUIThread(); return x.Name; }).ToArray();
-
-            var window = new System.Windows.Window
-            {
-                Content = new TTExecuterSettingsControl(templates),
-                Width = 520,
-                Height = 320
-            };
-
-            window.Show();
+            _manager.ExecuteAllTemplates(projectItems);
         }
     }
 }

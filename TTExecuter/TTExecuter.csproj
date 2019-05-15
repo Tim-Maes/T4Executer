@@ -66,6 +66,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\RunAllTemplatesCommand.cs" />
     <Compile Include="Extensions\DTEExtensions.cs" />
     <Compile Include="Commands\EnableDisableTTExecuterCommand.cs" />
     <Compile Include="ProjectItemManager.cs" />
@@ -104,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Commands\Resources\ExcecuteAfterBuildCommand.png" />
+    <Content Include="Commands\Resources\RunAllTemplatesCommand.png" />
     <Content Include="gM1fSkX6.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
