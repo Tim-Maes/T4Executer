@@ -1,7 +1,7 @@
-﻿language: csharp
+﻿dist: bionic
+language: csharp
 mono: none
 os: linux
-dist: trusty
 dotnet: 2.2
 script:
  - dotnet restore
