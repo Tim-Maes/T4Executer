@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Epsilekt/T4Executer.svg?branch=master)](https://travis-ci.org/Epsilekt/T4Executer)
+
 # T4Executer
 
 Fully configurable extension for Visual Studio 2017 & 2019
