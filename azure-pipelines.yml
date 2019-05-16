@@ -15,7 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet restore
+- script: nuget restore
 
 - task: NuGetToolInstaller@0
 
