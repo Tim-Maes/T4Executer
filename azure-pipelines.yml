@@ -20,11 +20,9 @@ steps:
     versionSpec: '4.3.0'
 
 - task: NuGetCommand@2
+  displayName: 'NuGet restore copy'
   inputs:
-    command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
-    versioningScheme: 'off'
 
 - task: VSBuild@1
   inputs:
