@@ -16,6 +16,8 @@ variables:
     
 steps:
 - task: NuGetToolInstaller@0
+  inputs: 
+    versionSpec: '4.3.0'
 
 - task: NuGetCommand@2
   inputs:
@@ -24,11 +26,6 @@ steps:
     feedsToUse: 'select'
     versioningScheme: 'off'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -36,7 +33,3 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
