@@ -1,5 +1,8 @@
 ﻿language: csharp
 mono: none
-dotnet: 2.2
+os: linux
+dist: trusty
+dotnet: 2.3
 script:
  - dotnet restore
+ - dotnet build
