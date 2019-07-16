@@ -10,11 +10,11 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
-namespace T4Executer
+namespace TTExecuter
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)]
-    [Guid(PackageGuidString)]
+    [Guid(TTExecuterPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideAutoLoad(VSConstants.UICONTEXT.NoSolution_string, PackageAutoLoadFlags.BackgroundLoad)]
@@ -46,7 +46,7 @@ namespace T4Executer
             RegisterEvents();
             await EnableDisableTTExecuterCommand.InitializeAsync(this);
             await OpenSettingsCommand.InitializeAsync(this);
-            await Commands.RunAllTemplatesCommand.InitializeAsync(this);
+            await TTExecuter.Commands.RunAllTemplatesCommand.InitializeAsync(this);
         }
 
         private void RegisterEvents()
@@ -60,7 +60,7 @@ namespace T4Executer
         private IEnumerable<ProjectItem> GetProjectItems()
         {
             ThreadHelper.ThrowIfNotOnUIThread();
-            var projects = _dte.GetProjectsInBuildScope();
+            var projects = _dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             return _manager.GetT4ProjectItems(projects);
         }
 

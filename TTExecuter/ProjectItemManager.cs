@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using VSLangProj;
 
-namespace T4Executer
+namespace TTExecuter
 {
     public class ProjectItemManager
     {

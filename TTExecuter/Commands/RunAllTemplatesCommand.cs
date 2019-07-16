@@ -5,7 +5,7 @@ using System;
 using System.ComponentModel.Design;
 using Task = System.Threading.Tasks.Task;
 
-namespace T4Executer.Commands
+namespace TTExecuter.Commands
 {
     internal sealed class RunAllTemplatesCommand
     {
@@ -54,7 +54,7 @@ namespace T4Executer.Commands
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
-            var projects = dte.GetProjectsInBuildScope();
+            var projects = dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
             var projectItems = _manager.GetT4ProjectItems(projects);
 
             _manager.ExecuteAllTemplates(projectItems);

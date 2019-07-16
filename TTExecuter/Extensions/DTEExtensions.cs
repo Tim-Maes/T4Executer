@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace T4Executer
+namespace TTExecuter
 {
     public static class DTEExtensions
     {
-        public static IEnumerable<Project> GetProjectsInBuildScope(this DTE dte)
+        public static IEnumerable<Project> GetProjectsInBuildScope(this DTE dte, vsBuildScope scope)
         {
             Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
             IEnumerable<Project> projects = null;
-            projects = dte.Solution.Projects.OfType<Project>();
+
+            switch (scope)
+            {
+                case vsBuildScope.vsBuildScopeSolution:
+                    projects = dte.Solution.Projects.OfType<Project>();
+                    break;
+                case vsBuildScope.vsBuildScopeProject:
+                    projects = ((object[])dte.ActiveSolutionProjects).OfType<Project>();
+                    break;
+            }
+
             return projects ?? Enumerable.Empty<Project>();
         }
     }
