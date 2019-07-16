@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.Design;
 using Task = System.Threading.Tasks.Task;
 
-namespace TTExecuter
+namespace T4Executer
 {
     internal sealed class EnableDisableTTExecuterCommand
     {

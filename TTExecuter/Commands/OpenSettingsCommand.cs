@@ -7,7 +7,7 @@ using System.Linq;
 using VSLangProj;
 using Task = System.Threading.Tasks.Task;
 
-namespace TTExecuter
+namespace T4Executer
 {
     internal sealed class OpenSettingsCommand
     {
@@ -59,7 +59,7 @@ namespace TTExecuter
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             var dte = Package.GetGlobalService(typeof(SDTE)) as DTE;
-            var projects = dte.GetProjectsInBuildScope(vsBuildScope.vsBuildScopeSolution);
+            var projects = dte.GetProjectsInBuildScope();
             var projectItems = _manager.GetT4ProjectItems(projects);
 
             var templates = projectItems.Select(x => { ThreadHelper.ThrowIfNotOnUIThread(); return x.Name; }).ToArray();

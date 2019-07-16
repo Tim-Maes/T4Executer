@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace TTExecuter
+namespace T4Executer
 {
     public partial class TTExecuterSettingsControl : UserControl
     {
