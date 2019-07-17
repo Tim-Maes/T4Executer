@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTExecuter", "TTExecuter\TTExecuter.csproj", "{72152DF3-6A77-478B-A287-F699436292EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{005C072B-235B-4D5E-92EC-089CDD149ED0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
