@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
 using System.Linq;
+using System.Windows;
 using VSLangProj;
 using Task = System.Threading.Tasks.Task;
 
@@ -64,14 +65,20 @@ namespace TTExecuter
 
             var templates = projectItems.Select(x => { ThreadHelper.ThrowIfNotOnUIThread(); return x.Name; }).ToArray();
 
-            var window = new System.Windows.Window
+            if (templates == null || templates.Length == 0)
             {
-                Content = new TTExecuterSettingsControl(templates),
-                Width = 520,
-                Height = 320
-            };
-
-            window.Show();
+                MessageBox.Show("No T4 Templates in solution!");
+            }
+            else
+            {
+                var window = new System.Windows.Window
+                {
+                    Content = new TTExecuterSettingsControl(templates),
+                    Width = 520,
+                    Height = 320
+                };
+                window.Show();
+            }
         }
     }
 }

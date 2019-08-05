@@ -19,7 +19,7 @@ namespace TTExecuter
             InitializeComponent();
             _templates = templates.ToList();
 
-            if (Settings.Default.AfterBuildList != null && Settings.Default.AfterBuildList.Count > 0)
+            if (Settings.Default.AfterBuildList != null && Settings.Default.AfterBuildList?.Count > 0)
             {
                 afterBuildList = Settings.Default.AfterBuildList;
                 foreach(var template in templates)
@@ -28,7 +28,7 @@ namespace TTExecuter
                         _templates.Remove(template);
                 }
             }
-            if (Settings.Default.BeforeBuildList != null && Settings.Default.BeforeBuildList.Count > 0)
+            if (Settings.Default.BeforeBuildList != null && Settings.Default.BeforeBuildList?.Count > 0)
             {
                 beforeBuildList = Settings.Default.BeforeBuildList;
                 foreach (var template in templates)
@@ -37,7 +37,7 @@ namespace TTExecuter
                         _templates.Remove(template);
                 }
             }
-            if (Settings.Default.IgnoreList != null && Settings.Default.IgnoreList.Count > 0)
+            if (Settings.Default.IgnoreList != null && Settings.Default.IgnoreList?.Count > 0)
             {
                 ignoreList = Settings.Default.IgnoreList;
                 foreach (var template in templates)
