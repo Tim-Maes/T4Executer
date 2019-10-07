@@ -46,6 +46,7 @@ namespace TTExecuter
             RegisterEvents();
             await EnableDisableTTExecuterCommand.InitializeAsync(this);
             await OpenSettingsCommand.InitializeAsync(this);
+            await PreserveGeneratedFileTimestampCommand.InitializeAsync(this);
             await TTExecuter.Commands.RunAllTemplatesCommand.InitializeAsync(this);
         }
 
