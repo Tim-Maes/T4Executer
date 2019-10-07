@@ -112,6 +112,8 @@ namespace TTExecuter
                 if (idx == -1) return null;
 
                 string extension = templateContent.Substring(0, idx);
+                if (!extension.StartsWith(".")) extension = "." + extension;
+
                 return Path.Combine(Path.GetDirectoryName(templatePath), 
                     Path.GetFileNameWithoutExtension(templatePath) + extension);
             }
