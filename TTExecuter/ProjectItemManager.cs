@@ -55,6 +55,10 @@ namespace TTExecuter
                             if (CompareArrays(oldContent, newContent))
                             {
                                 File.SetLastWriteTime(outputPath, lastWriteTime.Value);
+
+                                // workaround for a Team Explorer bug
+                                // open/close file to remove the pending change
+                                TeamExplorerWorkaround(templateVsProjectItem, outputPath);
                             }
                         }
                         catch
@@ -93,6 +97,23 @@ namespace TTExecuter
             }
 
             return true;
+        }
+
+        private void TeamExplorerWorkaround(VSProjectItem templateVsProjectItem, string outputPath)
+        {
+            var subItems = templateVsProjectItem.ProjectItem.ProjectItems;
+            if (subItems.Count == 1)
+            {
+                var subItem = subItems.Item(1);
+                if (subItem.FileNames[0] == outputPath)
+                {
+                    if (!subItem.IsOpen)
+                    {
+                        var window = subItem.Open();
+                        window.Close();
+                    }
+                }
+            }
         }
 
         private string GetOutputPath(VSProjectItem vsProjectItem)
