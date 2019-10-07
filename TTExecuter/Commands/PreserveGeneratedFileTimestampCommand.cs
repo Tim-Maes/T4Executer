@@ -7,13 +7,13 @@ namespace TTExecuter
 {
     internal sealed class PreserveGeneratedFileTimestampCommand
     {
-        public const int CommandId = 0x0100;
-        public static readonly Guid CommandSet = new Guid("b1e2aa4d-43b2-46c0-aa00-e4e3db493364");
-        private readonly AsyncPackage package;
+        public const int CommandId = 0x0101;
+        public static readonly Guid CommandSet = new Guid("c7ea3112-3e72-418d-a66b-ec35b76962e5");
+        private readonly AsyncPackage _package;
 
         private PreserveGeneratedFileTimestampCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
-            this.package = package ?? throw new ArgumentNullException(nameof(package));
+            _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
@@ -34,7 +34,7 @@ namespace TTExecuter
             OleMenuCommand preserveGeneratedFileTimestampCommand = sender as OleMenuCommand;
             if (null != preserveGeneratedFileTimestampCommand)
             {
-                preserveGeneratedFileTimestampCommand.Text = Settings.Default.PreserveGeneratedFileTimestamp ? "Disable" : "Enable";
+                preserveGeneratedFileTimestampCommand.Text = Settings.Default.PreserveGeneratedFileTimestamp ? "Do not preserve timestamp" : "Preserve timestamp";
             }
         }
 

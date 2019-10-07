@@ -12,14 +12,14 @@ namespace TTExecuter
 {
     internal sealed class OpenSettingsCommand
     {
-        public const int CommandId = 256;
+        public const int CommandId = 0x0100;
         public static readonly Guid CommandSet = new Guid("77605b7c-d09f-47b2-928e-552295580232");
-        private readonly AsyncPackage package;
+        private readonly AsyncPackage _package;
         private readonly ProjectItemManager _manager;
 
         private OpenSettingsCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
-            this.package = package ?? throw new ArgumentNullException(nameof(package));
+            _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
             _manager = new ProjectItemManager();
             var menuCommandID = new CommandID(CommandSet, CommandId);
@@ -37,7 +37,7 @@ namespace TTExecuter
         {
             get
             {
-                return this.package;
+                return this._package;
             }
         }
 

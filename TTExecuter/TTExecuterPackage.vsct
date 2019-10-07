@@ -47,6 +47,14 @@
           <ButtonText>Configure</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidTTExecuterPackageCmdSet" id="PreserveGeneratedFileTimestampCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidTTExecuterPackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+		  <CommandFlag>TextChanges</CommandFlag>
+		  <Strings>
+          <ButtonText>Do not preserve timestamp</ButtonText>
+        </Strings>
+      </Button>
       <Button guid="guidTTExecuterPackageCmdSet3" id="cmdidRunAllTemplatesCommand" priority="0x0100" type="Button">
         <Parent guid="guidTTExecuterPackageCmdSet3" id="SolutionToolbarGroup" />
         <Icon guid="guidImages3" id="bmpPic1" />
@@ -70,6 +78,7 @@
     <GuidSymbol name="guidTTExecuterPackageCmdSet" value="{c7ea3112-3e72-418d-a66b-ec35b76962e5}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="EnableDisableTTExecuterCommandId" value="0x0100" />
+      <IDSymbol name="PreserveGeneratedFileTimestampCommandId" value="0x0101" />
       <IDSymbol name="TopLevelMenu" value="0x1021" />
     </GuidSymbol>
 

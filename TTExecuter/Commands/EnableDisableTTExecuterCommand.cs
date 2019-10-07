@@ -9,11 +9,11 @@ namespace TTExecuter
     {
         public const int CommandId = 0x0100;
         public static readonly Guid CommandSet = new Guid("c7ea3112-3e72-418d-a66b-ec35b76962e5");
-        private readonly AsyncPackage package;
+        private readonly AsyncPackage _package;
 
         private EnableDisableTTExecuterCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
-            this.package = package ?? throw new ArgumentNullException(nameof(package));
+            _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
