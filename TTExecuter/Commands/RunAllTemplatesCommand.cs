@@ -9,18 +9,18 @@ namespace TTExecuter.Commands
 {
     internal sealed class RunAllTemplatesCommand
     {
-        public const int CommandId = 256;
+        public const int CommandId = 0x1000;
 
         public static readonly Guid CommandSet = new Guid("03d68cc2-f822-4688-81f5-5e431f51c62d");
 
-        private readonly AsyncPackage package;
+        private readonly AsyncPackage _package;
 
         private ProjectItemManager _manager;
 
         private RunAllTemplatesCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
             _manager = new ProjectItemManager();
-            this.package = package ?? throw new ArgumentNullException(nameof(package));
+            _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
@@ -38,7 +38,7 @@ namespace TTExecuter.Commands
         {
             get
             {
-                return this.package;
+                return this._package;
             }
         }
 

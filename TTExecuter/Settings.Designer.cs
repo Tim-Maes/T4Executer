@@ -79,5 +79,17 @@ namespace TTExecuter {
                 this["RunAll"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool PreserveGeneratedFileTimestamp {
+            get {
+                return ((bool)(this["PreserveGeneratedFileTimestamp"]));
+            }
+            set {
+                this["PreserveGeneratedFileTimestamp"] = value;
+            }
+        }
     }
 }

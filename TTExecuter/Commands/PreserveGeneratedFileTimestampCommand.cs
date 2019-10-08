@@ -5,25 +5,25 @@ using Task = System.Threading.Tasks.Task;
 
 namespace TTExecuter
 {
-    internal sealed class EnableDisableTTExecuterCommand
+    internal sealed class PreserveGeneratedFileTimestampCommand
     {
-        public const int CommandId = 0x0100;
+        public const int CommandId = 0x0101;
         public static readonly Guid CommandSet = new Guid("c7ea3112-3e72-418d-a66b-ec35b76962e5");
         private readonly AsyncPackage _package;
 
-        private EnableDisableTTExecuterCommand(AsyncPackage package, OleMenuCommandService commandService)
+        private PreserveGeneratedFileTimestampCommand(AsyncPackage package, OleMenuCommandService commandService)
         {
             _package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
             var menuCommandID = new CommandID(CommandSet, CommandId);
             var menuItem = new OleMenuCommand(this.Execute, menuCommandID);
-            menuItem.Checked = Settings.Default.EnableTTExecuter;
+            menuItem.Checked = Settings.Default.PreserveGeneratedFileTimestamp;
             menuItem.BeforeQueryStatus += new EventHandler(OnBeforeQueryStatus);
             commandService.AddCommand(menuItem);
         }
 
-        public static EnableDisableTTExecuterCommand Instance
+        public static PreserveGeneratedFileTimestampCommand Instance
         {
             get;
             private set;
@@ -31,10 +31,10 @@ namespace TTExecuter
 
         private void OnBeforeQueryStatus(object sender, EventArgs e)
         {
-            OleMenuCommand enableDisableCommand = sender as OleMenuCommand;
-            if (null != enableDisableCommand)
+            OleMenuCommand preserveGeneratedFileTimestampCommand = sender as OleMenuCommand;
+            if (null != preserveGeneratedFileTimestampCommand)
             {
-                enableDisableCommand.Text = Settings.Default.EnableTTExecuter ? "Disable" : "Enable";
+                preserveGeneratedFileTimestampCommand.Text = Settings.Default.PreserveGeneratedFileTimestamp ? "Do not preserve timestamp" : "Preserve timestamp";
             }
         }
 
@@ -43,16 +43,16 @@ namespace TTExecuter
             await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
             OleMenuCommandService commandService = await package.GetServiceAsync((typeof(IMenuCommandService))) as OleMenuCommandService;
-            Instance = new EnableDisableTTExecuterCommand(package, commandService);
+            Instance = new PreserveGeneratedFileTimestampCommand(package, commandService);
         }
 
         private void Execute(object sender, EventArgs e)
         {
-            Settings.Default.EnableTTExecuter = !Settings.Default.EnableTTExecuter;
+            Settings.Default.PreserveGeneratedFileTimestamp = !Settings.Default.PreserveGeneratedFileTimestamp;
             Settings.Default.Save();
 
             var command = sender as MenuCommand;
-            command.Checked = Settings.Default.EnableTTExecuter;
+            command.Checked = Settings.Default.PreserveGeneratedFileTimestamp;
         }
     }
 }

@@ -69,6 +69,7 @@
     <CopyVsixExtensionLocation />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\PreserveGeneratedFileTimestampCommand.cs" />
     <Compile Include="Commands\RunAllTemplatesCommand.cs" />
     <Compile Include="Extensions\DTEExtensions.cs" />
     <Compile Include="Commands\EnableDisableTTExecuterCommand.cs" />
