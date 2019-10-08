@@ -19,4 +19,4 @@ Run all T4 Templates in your solution by clicking the T4 icon on the solution ex
 
 You can set which T4 Templates to execute before build, after build or which Templates to ignore completely on build time via `Extensions - T4Executer - Configure`.
 
-Specify to preserve generated file timestamp when the content is not changed via `Extensions - T4Executer - Preserve timestamp`. This will cause only templates with new changes to be transformed.
+Specify to preserve the generated file timestamp when the file content is not changed via `Extensions - T4Executer - Preserve timestamp`.
