@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a6c46642-b11f-43e9-acb2-f64549436c40</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TTExecuter.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VSPackage.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Commands\Resources\ExcecuteAfterBuildCommand.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Commands\Resources\RunAllTemplatesCommand.png" />
+    <Content Include="$(MSBuildThisFileDirectory)LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\EnableDisableTTExecuterCommand.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\OpenSettingsCommand.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Resources\TTExecuterPackage.ico" />
+    <Content Include="$(MSBuildThisFileDirectory)stylesheet.css" />
+    <Content Include="$(MSBuildThisFileDirectory)T4Editor.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\EnableDisableTTExecuterCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\OpenSettingsCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\PreserveGeneratedFileTimestampCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\RunAllTemplatesCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\TTExecuterSettingsControl.xaml.cs">
+      <DependentUpon>TTExecuterSettingsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DTEExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjectItemManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TTExecuterPackage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\TTExecuterSettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)app.config" />
+    <None Include="$(MSBuildThisFileDirectory)Key.snk" />
+    <None Include="$(MSBuildThisFileDirectory)Settings.settings">
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)TTExecuterPackage.vsct" />
+  </ItemGroup>
+</Project>

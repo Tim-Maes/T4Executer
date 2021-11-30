@@ -7,7 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTExecuter", "TTExecuter\TT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{005C072B-235B-4D5E-92EC-089CDD149ED0}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TTExecuter.Shared", "TTExecuter.Shared\TTExecuter.Shared.shproj", "{A6C46642-B11F-43E9-ACB2-F64549436C40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4Executer", "T4Executer\T4Executer.csproj", "{193DF69B-C93C-42A6-8C6A-B7472889E8D0}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		TTExecuter.Shared\TTExecuter.Shared.projitems*{193df69b-c93c-42a6-8c6a-b7472889e8d0}*SharedItemsImports = 4
+		TTExecuter.Shared\TTExecuter.Shared.projitems*{72152df3-6a77-478b-a287-f699436292ee}*SharedItemsImports = 4
+		TTExecuter.Shared\TTExecuter.Shared.projitems*{a6c46642-b11f-43e9-acb2-f64549436c40}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -17,6 +26,10 @@ Global
 		{72152DF3-6A77-478B-A287-F699436292EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72152DF3-6A77-478B-A287-F699436292EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72152DF3-6A77-478B-A287-F699436292EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193DF69B-C93C-42A6-8C6A-B7472889E8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193DF69B-C93C-42A6-8C6A-B7472889E8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193DF69B-C93C-42A6-8C6A-B7472889E8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193DF69B-C93C-42A6-8C6A-B7472889E8D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
