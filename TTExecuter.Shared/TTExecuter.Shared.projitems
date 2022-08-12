@@ -9,20 +9,6 @@
     <Import_RootNamespace>TTExecuter.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Commands\Resources\ExcecuteAfterBuildCommand.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Commands\Resources\RunAllTemplatesCommand.png" />
-    <Content Include="$(MSBuildThisFileDirectory)LICENSE.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="$(MSBuildThisFileDirectory)Resources\EnableDisableTTExecuterCommand.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\OpenSettingsCommand.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Resources\TTExecuterPackage.ico" />
-    <Content Include="$(MSBuildThisFileDirectory)stylesheet.css" />
-    <Content Include="$(MSBuildThisFileDirectory)T4Editor.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Commands\EnableDisableTTExecuterCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\OpenSettingsCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\PreserveGeneratedFileTimestampCommand.cs" />
@@ -32,29 +18,18 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\DTEExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProjectItemManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TTExecuterPackage.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VSPackage.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)app.config" />
-    <None Include="$(MSBuildThisFileDirectory)Key.snk" />
-    <None Include="$(MSBuildThisFileDirectory)Settings.settings">
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      <Generator>SettingsSingleFileGenerator</Generator>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)TTExecuterPackage.vsct" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Controls\TTExecuterSettingsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VSPackage.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\TTExecuterPackage.ico" />
   </ItemGroup>
 </Project>
