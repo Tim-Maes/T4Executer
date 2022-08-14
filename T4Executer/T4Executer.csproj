@@ -45,9 +45,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\SharedFiles\Settings.Designer.cs">
+      <Link>Settings.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\SharedFiles\app.config">
+      <Link>app.config</Link>
+    </None>
+    <None Include="..\SharedFiles\Key.snk">
+      <Link>Key.snk</Link>
+    </None>
+    <None Include="..\SharedFiles\Settings.settings">
+      <Link>Settings.settings</Link>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -61,14 +78,45 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="16.0.206" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.11.35" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.3.2092">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="LICENSE.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\SharedFiles\LICENSE.txt">
+      <Link>LICENSE.txt</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\SharedFiles\Resources\EnableDisableCommand.png">
+      <Link>Resources\EnableDisableCommand.png</Link>
+    </Content>
+    <Content Include="..\SharedFiles\Resources\EnableDisableTTExecuterCommand.png">
+      <Link>Resources\EnableDisableTTExecuterCommand.png</Link>
+    </Content>
+    <Content Include="..\SharedFiles\Resources\ExcecuteAfterBuildCommand.png">
+      <Link>Resources\ExcecuteAfterBuildCommand.png</Link>
+    </Content>
+    <Content Include="..\SharedFiles\Resources\OpenSettingsCommand.png">
+      <Link>Resources\OpenSettingsCommand.png</Link>
+    </Content>
+    <Content Include="..\SharedFiles\Resources\RunAllTemplatesCommand.png">
+      <Link>Resources\RunAllTemplatesCommand.png</Link>
+    </Content>
+    <Content Include="..\SharedFiles\stylesheet.css">
+      <Link>stylesheet.css</Link>
+    </Content>
+    <Content Include="..\SharedFiles\T4Editor.jpg">
+      <Link>T4Editor.jpg</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <VSCTCompile Include="..\SharedFiles\TTExecuterPackage.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
   </ItemGroup>
   <Import Project="..\TTExecuter.Shared\TTExecuter.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
