@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-  <Metadata>
-	  <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8668" Version="2.1" Language="en-US" Publisher="Epsicode" />
-	  <DisplayName>T4Executer</DisplayName>
-	  <Description xml:space="preserve">Execute T4 Templates when building your solution.</Description>
-	  <MoreInfo>http://www.github.com/Epsilekt/T4Executer</MoreInfo>
-	  <License>LICENSE.txt</License>
-	  <ReleaseNotes>LICENSE.txt</ReleaseNotes>
-	  <Icon>T4Editor.jpg</Icon>
-	  <PreviewImage>T4Editor.jpg</PreviewImage>
-	  <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
-  </Metadata>
-	<Installation>
-		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
-			<ProductArchitecture>amd64</ProductArchitecture>
-		</InstallationTarget>
-		<InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
-			<ProductArchitecture>amd64</ProductArchitecture>
-		</InstallationTarget>
-		<InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
-			<ProductArchitecture>amd64</ProductArchitecture>
-		</InstallationTarget>
-	</Installation>
-  <Dependencies>
-    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-  </Dependencies>
-  <Prerequisites>
-    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,18.0)" DisplayName="Visual Studio core editor" />
-  </Prerequisites>
-  <Assets>
-    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-  </Assets>
+    <Metadata>
+        <Identity Id="TTExecuter.5286e45f-3c63-44cb-84a5-ae1125ec8667" Version="2.2" Language="en-US" Publisher="Tim Maes" />
+        <DisplayName>T4Executer</DisplayName>
+        <Description xml:space="preserve">For VS2022. Execute T4 Templates when building your solution.</Description>
+        <MoreInfo>http://www.github.com/Tim-Maes/T4Executer</MoreInfo>
+        <License>LICENSE.txt</License>
+        <ReleaseNotes>LICENSE.txt</ReleaseNotes>
+        <Icon>T4Editor.jpg</Icon>
+        <PreviewImage>T4Editor.jpg</PreviewImage>
+        <Tags>T4 Template Build Solution Text Templates Transformation</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,18.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
 </PackageManifest>
